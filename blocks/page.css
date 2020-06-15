@@ -1,0 +1,69 @@
+@import url('./header/header.css');
+@import url('./search/search.css');
+@import url('./result/result.css');
+@import url('./about/about.css');
+@import url('./footer/footer.css');
+@import url('./popup/popup.css');
+
+
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.active {
+  display: flex;
+}
+
+.banner {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../src/images/georgia-de-lotz--UsJoNxLaNo-unsplash.jpg');
+  width: 100%;
+  min-height: 576px;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#overlay-reg {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    min-height: 400px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .banner {
+    min-height: 536px;
+  }
+}

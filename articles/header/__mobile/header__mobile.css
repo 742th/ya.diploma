@@ -1,0 +1,15 @@
+.header__mobile {
+  background-image: url('../../../src/images/menu_white.svg');
+  background-position: center;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  border-style: none;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 449px) {
+  .header__mobile {
+    display: none;
+  }
+}

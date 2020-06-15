@@ -1,0 +1,9 @@
+@import url('./__label/popup__label.css');
+@import url('./__input/popup__input.css');
+@import url('./__button/popup__button.css');
+@import url('./__error/popup__error.css');
+
+.popup__form {
+  display: flex;
+  flex-direction: column;
+}

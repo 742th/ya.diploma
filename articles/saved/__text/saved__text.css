@@ -1,0 +1,14 @@
+@import url('./__p/saved__p.css');
+@import url('./__bold/saved__bold.css');
+
+.saved__text {
+  display: flex;
+  margin: 0 0 32px;
+}
+
+@media screen and (max-width: 488px) {
+  .saved__text {
+    max-width: 288px;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,16 @@
+@import url('./__container-date/card__container_date.css');
+@import url('./__container-title/card__container_title.css');
+@import url('./__container-text/card__container_text.css');
+@import url('./__container-edition/card__container_edition.css');
+
+.card__container {
+  width: 352px;
+  margin: 20px 24px 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .card__container {
+    width: 192px;
+    margin: 16px;
+  }
+}

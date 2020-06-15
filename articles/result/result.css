@@ -1,0 +1,21 @@
+@import url('./__container/result__container.css');
+
+.result {
+  background-color: #F5F6F7;
+  padding: 0 104px;
+  display: flex;
+  flex-direction: column;
+  /* display: none; */
+}
+
+@media screen and (max-width: 768px) {
+  .result {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .result {
+    padding: 0 16px;
+  }
+}

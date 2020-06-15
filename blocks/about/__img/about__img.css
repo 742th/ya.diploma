@@ -1,0 +1,22 @@
+.about__img {
+  max-width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  margin: 80px 56px 104px 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .about__img {
+    width: 232px;
+    height: 232px;
+    margin: 61px 32px 61px 40px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .about__img {
+    width: 272px;
+    height: 272px;
+    margin: 32px 8px 24px;
+  }
+}

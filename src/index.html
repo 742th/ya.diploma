@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <!-- <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>"> -->
+  <title>News Explorer</title>
+</head>
+<body>
+  <section class="page">
+    <div class="banner"></div>
+    <header class="header">
+      <h2 class="header__title">NewsExplorer</h2>
+      <button class="header__mobile"></button>
+      <nav class="header__menu">
+        <a class="header__link">Главная</a>
+        <button class="header__button">Авторизоваться</button>
+      </nav>
+      <nav class="header__nav">
+        <a class="header__link-active">Главная</a>
+        <button class="header__button">Авторизоваться</button>
+      </nav>
+    </header>
+    <section class="search">
+      <div class="search__container">
+        <h1 class="search__title">Что в мире творится?</h1>
+        <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+      </div>
+      <form class="search__form">
+        <input class="search__input" type="text" placeholder="Введите тему новости">
+        <button class="search__button">Искать</button>
+      </form>
+    </section>
+    <section class="result">
+      <h2 class="result__title">Результаты поиска</h2>
+      <div class="result__container">
+        <div class="card">
+          <img class="card__img" src="./images/test-card.jpg" alt="card-img">
+          <button class="card__button-login">Войдите, чтобы сохранять статьи</button>
+          <button class="card__button-flag"></button>
+          <div class="card__container">
+            <p class="card__container_date">2 августа, 2019</p>
+            <h3 class="card__container_title">Лесные огоньки: история одной фотографии</h3>
+            <p class="card__container_text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p class="card__container_edition">Медуза</p>
+          </div>
+        </div>
+      </div>
+      <button class="result__button">Показать еще</button>
+    </section>
+    <section class="about">
+      <img class="about__img" alt="author_photo" src="./images/author.jpg">
+      <div class="about__container">
+        <h2 class="about__title">Об авторе</h2>
+        <div class="about__text">
+          <p class="about__quote">Это блок с описанием автора проекта.
+             Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+          <p class="about__quote">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились,
+             и чем можете помочь потенциальным заказчикам.</p>
+        </div>
+      </div>
+    </section>
+    <div id="overlay">
+      <div class="popup">
+        <h2 class="popup__title">Вход</h2>
+        <img class="popup__close" src="./images/close.svg">
+        <form name="enter" class="popup__form" novalidate>
+          <label class="popup__label">Email</label>
+          <input name="email" class="popup__input" type="email" required placeholder="Введите почту">
+          <span class="popup__error">not allowed</span>
+          <label class="popup__label">Пароль</label>
+          <input name="password" class="popup__input" type="password" required placeholder="Введите пароль">
+          <span class="popup__error"></span>
+          <button class="popup__button">Войти</button>
+        </form>
+        <span class="popup__text">
+          <p class="popup__or">или</p>
+          <a class="popup__url" href="/">Зарегистрироваться</a>
+        </span>
+      </div>
+    </div>
+    <div id="overlay-reg">
+      <div class="popup">
+        <h2 class="popup__title">Регистрация</h2>
+        <img class="popup__close" src="./images/close.svg">
+        <form name="enter" class="popup__form" novalidate>
+          <label class="popup__label">Email</label>
+          <input name="email" class="popup__input" type="email" required placeholder="Введите почту">
+          <span class="popup__error">not allowed</span>
+          <label class="popup__label">Пароль</label>
+          <input name="password" class="popup__input" type="password" required placeholder="Введите пароль">
+          <span class="popup__error"></span>
+          <label class="popup__label">Имя</label>
+          <input name="password" class="popup__input" type="password" required placeholder="Введите своё имя">
+          <span class="popup__error"></span>
+          <button class="popup__button">Зарегистрироваться</button>
+        </form>
+        <span class="popup__text">
+          <p class="popup__or">или</p>
+          <a class="popup__url" href="/">Войти</a>
+        </span>
+      </div>
+    </div>
+
+    <footer class="footer" >
+      <h2 class="footer__title">&copy; 2020 Supersite, Powered by News API</h2>
+      <div class="footer__container">
+        <div class="footer__links">
+          <a class="footer__link" href="./index.html">Главная</a>
+          <a class="footer__link" href="https://praktikum.yandex.ru/" target="_blank">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__socials">
+          <a class="footer__logo" href="https://github.com/742th/" target="_blank"></a>
+          <a class="footer__logo" href="./articles/articles.html" target="_blank"></a>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <!-- <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close"> -->
+  <!-- <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script> -->
+</body>
+</html>
