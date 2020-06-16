@@ -7,61 +7,82 @@ const isDev = process.env.NODE_ENV === 'development';
 const webpack = require('webpack');
 
 module.exports = {
-    entry: {
+  entry: {
       'main': './src/index.js',
-      '/articles/articles': './src/articles/articles.js'
+      'articles': './src/articles/articles.js'
     },
-    output: {
+  output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js'
+        filename: 'js/[name].[chunkhash].js'
     },
-module: {
+  module: {
     rules: [{
         test: /\.js$/,
         use: {loader: "babel-loader"},
         exclude: /node_modules/,
         },
         {
-        test: /\.css$/,
-        use: [(isDev? 'style-loader' : MiniCssExtractPlugin.loader),
-         'css-loader',
-         'postcss-loader'
-        ]
+          test: /\.css$/i,
+          use: [
+            isDev ? { loader: 'style-loader' } : {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+              },
+            },
+            'css-loader',
+            'postcss-loader',
+          ],
         },
         {
         test: /\.(png|jpg|gif|ico|svg|jpeg)$/i,
         use: [
-            'file-loader?name=./images/[name].[ext]',
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[ext]',
+              // outputPath: 'images',
+              esModule: false,
+              publicPath: '../'
+            }
+          },
+            // {loader: 'file-loader?name=./images/[name].[ext]'},
             {
                 loader: 'image-webpack-loader',
                 options: {
-                  name: '[name].[ext]'
+                  // name: '[name].[ext]',
+                  // outputPath: 'images',
+                  // publicPath: '../'
                 }
             },
             ]
         },
         {
             test: /\.(eot|ttf|woff|woff2)$/,
-            loader: 'file-loader?name=./vendor/[name].[ext]'
+            loader: 'file-loader?name=./vendor/[name].[ext]',
+            options: {
+              outputPath: './vendor',
+              publicPath: '../vendor'
+            }
         }
 
         ]
     },
-plugins: [
+  plugins: [
     new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',
+        filename: 'css/[name].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
         inject: true,
         template:  './src/index.html',
         filename: 'index.html',
-        chunk: ['main'],
+        chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template:  './src/articles/articles.html',
-      filename: 'articles/articles.html',
-      chunk: ['/articles/articles']
+      template:  './src/articles.html',
+      filename: 'articles.html',
+      // чтобы засовывать css and js в нужные html
+      chunks: ['articles']
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
