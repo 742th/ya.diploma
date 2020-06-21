@@ -4,34 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
-  <!-- <link rel="stylesheet" href="css/main.617c777062ed2547d2e3.css"> -->
   <title>News Explorer</title>
-<link href="css/main.617c777062ed2547d2e3.css" rel="stylesheet"></head>
+<link href="css/main.2a8c10344bb21efe61d2.css" rel="stylesheet"></head>
 <body>
   <section class="page">
     <div class="banner"></div>
+
     <header class="header">
       <h2 class="header__title">NewsExplorer</h2>
       <button class="header__mobile"></button>
-      <nav class="header__menu">
-        <a class="header__link">Главная</a>
-        <button class="header__button">Авторизоваться</button>
-      </nav>
       <nav class="header__nav">
         <a class="header__link-active">Главная</a>
         <button class="header__button">Авторизоваться</button>
       </nav>
     </header>
+
     <section class="search">
       <div class="search__container">
         <h1 class="search__title">Что в мире творится?</h1>
         <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
       </div>
-      <form class="search__form">
-        <input class="search__input" type="text" placeholder="Введите тему новости">
+      <form class="search__form" name="search">
+        <input name="request" class="search__input" type="text" placeholder="Введите тему новости">
         <button class="search__button">Искать</button>
       </form>
     </section>
+
     <section class="result">
       <h2 class="result__title">Результаты поиска</h2>
       <div class="result__container">
@@ -49,6 +47,7 @@
       </div>
       <button class="result__button">Показать еще</button>
     </section>
+
     <section class="about">
       <img class="about__img" alt="author_photo" src="./images/author.jpg">
       <div class="about__container">
@@ -61,45 +60,60 @@
         </div>
       </div>
     </section>
-    <div id="overlay">
+
+    <div class="overlay">
       <div class="popup">
         <h2 class="popup__title">Вход</h2>
-        <img class="popup__close" src="./images/close.svg">
+        <img class="popup__close" src="./images/close.svg" alt="close_img">
         <form name="enter" class="popup__form" novalidate>
           <label class="popup__label">Email</label>
-          <input name="email" class="popup__input" type="email" required placeholder="Введите почту">
-          <span class="popup__error">not allowed</span>
-          <label class="popup__label">Пароль</label>
-          <input name="password" class="popup__input" type="password" required placeholder="Введите пароль">
+          <input name="email" class="popup__input" type="email" pattern="^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-z0-9_-]+(\.[\w_-]+)*\.[a-z]+$" required placeholder="Введите почту">
           <span class="popup__error"></span>
-          <button class="popup__button">Войти</button>
+          <label class="popup__label">Пароль</label>
+          <input name="password" class="popup__input" minlength="8" maxlength="20" type="password" required placeholder="Введите пароль">
+          <span class="popup__error"></span>
+          <button class="popup__button" disabled>Войти</button>
         </form>
         <span class="popup__text">
           <p class="popup__or">или</p>
-          <a class="popup__url" href="/">Зарегистрироваться</a>
+          <a class="popup__url">Зарегистрироваться</a>
         </span>
       </div>
     </div>
-    <div id="overlay-reg">
+
+    <div class="overlay-reg">
       <div class="popup">
         <h2 class="popup__title">Регистрация</h2>
-        <img class="popup__close" src="./images/close.svg">
-        <form name="enter" class="popup__form" novalidate>
+        <img class="popup__close close-reg" src="./images/close.svg" alt="close_img">
+        <form name="reg" class="popup__form" novalidate>
           <label class="popup__label">Email</label>
-          <input name="email" class="popup__input" type="email" required placeholder="Введите почту">
-          <span class="popup__error">not allowed</span>
+          <input name="email" class="popup__input" type="email" pattern="^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-z0-9_-]+(\.[\w_-]+)*\.[a-z]+$" required placeholder="Введите почту">
+          <span class="popup__error"></span>
           <label class="popup__label">Пароль</label>
-          <input name="password" class="popup__input" type="password" required placeholder="Введите пароль">
+          <input name="password" class="popup__input" minlength="8" maxlength="20" type="password" required placeholder="Введите пароль">
           <span class="popup__error"></span>
           <label class="popup__label">Имя</label>
-          <input name="password" class="popup__input" type="password" required placeholder="Введите своё имя">
+          <input name="myName" class="popup__input" minlength="2" maxlength="30" type="text" required placeholder="Введите своё имя">
           <span class="popup__error"></span>
-          <button class="popup__button">Зарегистрироваться</button>
+          <button class="popup__button" disabled>Зарегистрироваться</button>
         </form>
         <span class="popup__text">
           <p class="popup__or">или</p>
-          <a class="popup__url" href="/">Войти</a>
+          <a class="popup__url enter">Войти</a>
         </span>
+      </div>
+    </div>
+
+    <div class="overlay-mobile">
+      <div class="mobile">
+        <img class="mobile__close" src="./images/close.svg" alt="close_img">
+        <nav class="mobile__nav">
+          <a class="mobile__link">Главная</a>
+          <a class="mobile__link">Сохранённые статьи</a>
+          <button class="mobile__button">Авторизоваться
+            <img class="mobiel__logout" src="./images/logout_white.png">
+          </button>
+        </nav>
       </div>
     </div>
 
@@ -117,7 +131,6 @@
       </div>
     </footer>
   </section>
-  <!-- <img src="" alt="" class="popup__close"> -->
-  <!-- <script type="module" src="js/main.e1f83f69ab3632b7dba1.js"></script> -->
-<script type="text/javascript" src="js/main.e1f83f69ab3632b7dba1.js"></script></body>
+  <script type="module" src="./index.js"></script>
+<script type="text/javascript" src="js/main.e31d8c6d379babcd885d.js"></script></body>
 </html>
