@@ -1,0 +1,11 @@
+@import url('./__preloader/result__preloader.css');
+@import url('./__search/result__search.css');
+
+.result__load {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 282px;
+}

@@ -1,0 +1,14 @@
+
+.mobile__close:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 448px) {
+  .mobile__close {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 18px;
+    right: 18px;
+  }
+}
