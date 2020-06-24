@@ -1,4 +1,4 @@
-.card__container_text {
+.card__text {
   font-family: Roboto, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .card__container_text {
+  .card__text {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;

@@ -50,13 +50,15 @@ import {
   NOT_FOUND,
   EXIT_BUTTON,
   SAVED_ARTICLES,
+  MOBILE_EXIT,
+  MOBILE_ARTICLES,
+  ADD_ARTICLES,
 
 } from '../scripts/consts.js';
 
 const auth = new Popup ( POPUP_AUTH, BUTTON_AUTH, BUTTON_CLOSE, POPUP_REG, BUTTON_REG, BUTTON_CLOSE_REG, BUTTON_OPEN_ENTER, MOBILE_AUTH );
 auth.open();
 auth.close();
-
 
 const header = new Header ( MOBILE_MENU, BUTTON_OPEN_MOBILE, BUTTON_CLOSE_MOBILE );
 header.openHead();
@@ -79,7 +81,6 @@ const mainApi = new MainApi ({
 
 const cardList = new NewsCardList(BUTTON_MORE, RESULT_BOX, MONTHS);
 
-
 SEARCH_FORM.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!e.target.elements.request.value) return;
@@ -92,7 +93,7 @@ SEARCH_FORM.addEventListener('submit', (e) => {
   LOADER.classList.add('active');
   newsApi.getNews(value, parseDate)
     .then((arr) => {
-      cardList.renderResults(arr);
+      cardList.renderResults(arr, value);
       RESULT_MAIN.classList.add('active');
       LOADER.classList.remove('active');
     })
@@ -107,44 +108,72 @@ BUTTON_MORE.addEventListener('click', (e) => {
   cardList.showMore();
 });
 
+function enterAll (text) {
+  EXIT_BUTTON.textContent = text;
+  MOBILE_EXIT.textContent = text;
+  SAVED_ARTICLES.removeAttribute('hidden');
+  MOBILE_ARTICLES.removeAttribute('hidden');
+  BUTTON_AUTH.setAttribute('hidden', true);
+  MOBILE_AUTH.setAttribute('hidden', true);
+  EXIT_BUTTON.removeAttribute('hidden');
+  MOBILE_EXIT.removeAttribute('hidden');
+  EXIT_BUTTON.insertAdjacentHTML('beforeend', '<img class="header__img" src="./images/logout_white.png" alt="logout"></img>');
+  MOBILE_EXIT.insertAdjacentHTML('beforeend', '<img class="header__img" src="./images/logout_white.png" alt="logout"></img>');
+};
+
+function exitAll () {
+  localStorage.removeItem('token');
+  SAVED_ARTICLES.setAttribute('hidden', true);
+  EXIT_BUTTON.setAttribute('hidden', true);
+  BUTTON_AUTH.removeAttribute('hidden');
+  MOBILE_ARTICLES.setAttribute('hidden', true);
+  MOBILE_EXIT.setAttribute('hidden', true);
+  MOBILE_AUTH.removeAttribute('hidden');
+}
+
 AUTH_FORM.addEventListener('submit', (e) => {
   const data = authForm.getData();
   mainApi.signin(data.email, data.password)
     .then((res) => {
       localStorage.setItem('token', res.token);
       mainApi.getUserData(res.token)
-        .then((el) => {
-          EXIT_BUTTON.textContent = el.name;
-          SAVED_ARTICLES.removeAttribute('hidden');
-          BUTTON_AUTH.setAttribute('hidden', true);
-          EXIT_BUTTON.removeAttribute('hidden');
-          EXIT_BUTTON.insertAdjacentHTML('beforeend', '<img class="header__img" src="./images/logout_white.png"></img>');
-        });
+        .then((el) => enterAll(el.name));
     });
-
-
 });
 
-EXIT_BUTTON.addEventListener('click', (e) => {
-  localStorage.removeItem('token');
-  SAVED_ARTICLES.setAttribute('hidden', true);
-  EXIT_BUTTON.setAttribute('hidden', true);
-  BUTTON_AUTH.removeAttribute('hidden');
-});
+EXIT_BUTTON.addEventListener('click', (e) => exitAll());
+
+MOBILE_EXIT.addEventListener('click', (e) => exitAll());
 
 REG_FORM.addEventListener('submit', (e) => {
   const data = regForm.getData();
   mainApi.signup(data.email, data.password, data.name);
 });
 
+RESULT_BOX.addEventListener('click', (e) => {
+  if (e.target.classList.value === 'card__button-flag' && localStorage.getItem('token') && !e.target.getAttribute('id')) {
+    const url = e.target.nextElementSibling.getAttribute('href');
+    const keyword = e.target.nextElementSibling.getAttribute('name');
+    const card = cardList.getArr().find((el) => el.url === url);
+    mainApi.createArticle(keyword, card.title, card.description, card.publishedAt, card.source.name, url, card.urlToImage)
+      .then((el) => {
+        e.target.classList.add('marked');
+        e.target.setAttribute('id', el._id);
+      });
+  } else if (e.target.classList.value === 'card__button-flag marked' && localStorage.getItem('token')) {
+    const id = e.target.getAttribute('id');
+    mainApi.removeArticle(id)
+      .then((el) => {
+        e.target.classList.remove('marked');
+        e.target.removeAttribute('id');
+      })
+  }
+});
+
 if (localStorage.getItem('token')) {
   mainApi.getUserData(localStorage.getItem('token'))
     .then((data) => {
       if (!data) return;
-      EXIT_BUTTON.textContent = data.name;
-      SAVED_ARTICLES.removeAttribute('hidden');
-      BUTTON_AUTH.setAttribute('hidden', true);
-      EXIT_BUTTON.removeAttribute('hidden');
-      EXIT_BUTTON.insertAdjacentHTML('beforeend', '<img class="header__img" src="./images/logout_white.png"></img>');
+      enterAll(data.name);
     })
 }

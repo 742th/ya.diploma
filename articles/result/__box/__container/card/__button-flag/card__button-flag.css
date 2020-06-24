@@ -4,7 +4,7 @@
   width: 40px;
   border: none;
   height: 40px;
-  background-image: url('../../../../../../src/images/Rectangle-grey.png');
+  background-image: url('../../../../../../src/images/trash.png');
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -14,12 +14,12 @@
 }
 
 .card__button-flag:hover {
-  background-image: url('../../../../../../src/images/Rectangle-hover.svg');
+  background-image: url('../../../../../../src/images/trash-black.png');
   cursor: pointer;
 }
 
 .card__button-flag:hover::after {
-  content: 'Войдите, чтобы сохранять статьи';
+  content: 'Убрать из сохранённых';
   background-color: #FFFFFF;
   box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
   border-radius: 10px;
@@ -34,14 +34,10 @@
   color: #000000;
   border: none;
   height: 40px;
-  width: 182px;
+  width: 132px;
   position: absolute;
   top: 0px;
   right: 50px;
-}
-
-.marked {
-  background-image: url('../../../../../../src/images/Rectangle-marked.png');
 }
 
 @media screen and (max-width: 768px) {
@@ -51,8 +47,9 @@
   }
 
   .card__button-flag:hover::after {
-    width: 160px;
     font-size: 8px;
     line-height: 10px;
+    top: 50px;
+    right: 0;
   }
 }

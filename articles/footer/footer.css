@@ -19,7 +19,7 @@
 @media screen and (max-width: 448px) {
   .footer {
     align-items: baseline;
-    padding: 0 16px;
+    padding: 20px 16px 0;
     flex-wrap: wrap;
     flex-direction: column-reverse;
   }

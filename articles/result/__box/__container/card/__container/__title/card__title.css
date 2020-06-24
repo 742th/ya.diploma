@@ -1,4 +1,4 @@
-.card__container_title {
+.card__title {
   font-family: Roboto Slab, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .card__container_title {
+  .card__title {
     font-size: 22px;
     line-height: 24px;
     margin-bottom: 10px;

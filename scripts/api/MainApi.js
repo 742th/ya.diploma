@@ -62,14 +62,60 @@ export class MainApi {
   }
 
   getArticles() {
-
+    return fetch(`${this.url}/articles`,{
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw `Error: ${res.status}`;
+      } return res.json();
+    })
   }
 
-  createArticle() {
-
+  createArticle(keyword, title, text, date, source, link, image='') {
+    return fetch(`${this.url}/articles`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        keyword,
+        title,
+        text,
+        date,
+        source,
+        link,
+        image
+      })
+    })
+    .then((res)=> {
+      if(!res.ok) {
+        throw new Error(`Error: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch(err => console.log(err));
   }
 
-  removeArticle() {
-
+  removeArticle(id) {
+    return fetch(`${this.url}/articles/${id}`,{
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      },
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw `Error: ${res.status}`;
+      } return res.json();
+    })
   }
 }

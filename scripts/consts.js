@@ -20,6 +20,8 @@ const BUTTON_OPEN_MOBILE = document.querySelector('.header__mobile');
 const BUTTON_CLOSE_MOBILE = document.querySelector('.mobile__close');
 const MOBILE_MENU = document.querySelector('.overlay-mobile');
 const MOBILE_AUTH = document.querySelector('.mobile__button');
+const MOBILE_EXIT = document.querySelector('.mobile__logout');
+const MOBILE_ARTICLES = document.querySelector('.mobile__articles');
 
 const AUTH_FORM = document.forms.enter;
 const REG_FORM = document.forms.reg;
@@ -67,4 +69,6 @@ export {
   NOT_FOUND,
   EXIT_BUTTON,
   SAVED_ARTICLES,
+  MOBILE_EXIT,
+  MOBILE_ARTICLES,
 };

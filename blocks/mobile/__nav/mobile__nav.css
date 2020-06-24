@@ -1,5 +1,6 @@
 @import url('./__button/mobile__button.css');
 @import url('./__link/mobile__link.css');
+@import url('./__logout/mobile__logout.css');
 
 .mobile__nav {
   display: flex;
