@@ -3,92 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./articles/articles.css">
+  <link rel="icon" href="./images/Favicon.png" type="image/x-icon">
   <title>News Explorer</title>
-<link href="css/articles.ee298d38ec852322bf49.css" rel="stylesheet"></head>
+<link href="css/articles.0559082342aa81372129.css" rel="stylesheet"></head>
 <body>
   <section class="page">
     <header class="header">
       <h2 class="header__title">NewsExplorer</h2>
       <button class="header__mobile"></button>
-      <nav class="header__menu">
-        <a class="header__link">Главная</a>
-        <button class="header__button">Авторизоваться</button>
-      </nav>
       <nav class="header__nav">
-        <a class="header__link-active">Главная</a>
-        <button class="header__button">Авторизоваться</button>
+        <a class="header__link" href="./index.html">Главная</a>
+        <a class="header__link linked" href="articles.html">Сохранённые статьи</a>
+        <button class="header__logout"></button>
       </nav>
     </header>
+
     <section class="saved">
       <h2 class="saved__title">Сохранённые статьи</h2>
-      <p class="saved__value">Грета, у вас 5 сохранённых статей</p>
-      <span class="saved__text">
+      <p class="saved__value"></p>
+      <div class="saved__text">
         <p class="saved__p">По ключевым словам:</p>
-        <p class="saved__bold">Природа, Тайга</p>
+        <p class="saved__bold"></p>
         <p class="saved__p">и</p>
-        <p class="saved__bold">2 другим</p>
-      </span>
+        <p class="saved__bold"></p>
+      </div>
     </section>
     <section class="result">
       <div class="result__container">
-        <div class="card">
-          <img class="card__img" src="./images/test-card.jpg" alt="card-img">
-          <button class="card__button-login">Войдите, чтобы сохранять статьи</button>
-          <button class="card__button-flag"></button>
-          <div class="card__container">
-            <p class="card__container_date">2 августа, 2019</p>
-            <h3 class="card__container_title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__container_text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="card__container_edition">Медуза</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__img" src="./images/test-card.jpg" alt="card-img">
-          <button class="card__button-login">Войдите, чтобы сохранять статьи</button>
-          <button class="card__button-flag"></button>
-          <div class="card__container">
-            <p class="card__container_date">2 августа, 2019</p>
-            <h3 class="card__container_title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__container_text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="card__container_edition">Медуза</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__img" src="./images/test-card.jpg" alt="card-img">
-          <button class="card__button-login">Войдите, чтобы сохранять статьи</button>
-          <button class="card__button-flag"></button>
-          <div class="card__container">
-            <p class="card__container_date">2 августа, 2019</p>
-            <h3 class="card__container_title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__container_text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="card__container_edition">Медуза</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__img" src="./images/test-card.jpg" alt="card-img">
-          <button class="card__button-login">Войдите, чтобы сохранять статьи</button>
-          <button class="card__button-flag"></button>
-          <div class="card__container">
-            <p class="card__container_date">2 августа, 2019</p>
-            <h3 class="card__container_title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__container_text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="card__container_edition">Медуза</p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__img" src="./images/test-card.jpg" alt="card-img">
-          <button class="card__button-login">Войдите, чтобы сохранять статьи</button>
-          <button class="card__button-flag"></button>
-          <div class="card__container">
-            <p class="card__container_date">2 августа, 2019</p>
-            <h3 class="card__container_title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__container_text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="card__container_edition">Медуза</p>
-          </div>
-        </div>
       </div>
     </section>
+
+    <div class="overlay-mobile">
+      <div class="mobile">
+        <img class="mobile__close" src="./images/close.svg" alt="close_img">
+        <nav class="mobile__nav">
+          <a class="mobile__link" href="/">Главная</a>
+          <a class="mobile__articles" href="./articles.html">Сохранённые статьи</a>
+          <button class="mobile__button" hidden>Авторизоваться</button>
+          <button class="mobile__logout"></button>
+        </nav>
+      </div>
+    </div>
+
     <footer class="footer" >
       <h2 class="footer__title">&copy; 2020 Supersite, Powered by News API</h2>
       <div class="footer__container">
@@ -104,5 +60,5 @@
     </footer>
   </section>
 
-<script type="text/javascript" src="js/articles.4a95911c295770588b61.js"></script></body>
+<script type="text/javascript" src="js/articles.e0f9688e9f1480d76f81.js"></script></body>
 </html>
