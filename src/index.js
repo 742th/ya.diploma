@@ -10,6 +10,7 @@ import './images/test-card.jpg';
 import './images/trash.png';
 import './images/close.svg';
 import './images/not-found_v1.png';
+import './images/Favicon.png';
 
 // классы
 
@@ -52,7 +53,6 @@ import {
   SAVED_ARTICLES,
   MOBILE_EXIT,
   MOBILE_ARTICLES,
-  ADD_ARTICLES,
 
 } from '../scripts/consts.js';
 
@@ -148,6 +148,10 @@ MOBILE_EXIT.addEventListener('click', (e) => exitAll());
 REG_FORM.addEventListener('submit', (e) => {
   const data = regForm.getData();
   mainApi.signup(data.email, data.password, data.name);
+});
+
+MOBILE_AUTH.addEventListener('click', (e) => {
+  MOBILE_MENU.classList.remove('active');
 });
 
 RESULT_BOX.addEventListener('click', (e) => {

@@ -13,7 +13,7 @@
   }
 }
 
-@media screen and (max-width: 448px) {
+@media screen and (max-width: 600px) {
   .about__container {
     margin-bottom: 80px;
   }

@@ -45,7 +45,7 @@
   }
 }
 
-@media screen and (max-width: 448px) {
+@media screen and (max-width: 600px) {
   .header__link,
   .header__articles,
   .linked {

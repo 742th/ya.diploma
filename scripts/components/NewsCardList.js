@@ -114,13 +114,14 @@ export class NewsCardList {
 
   renderArticles (arr) {
     for (const el of arr) {
-      this.keywords.push(el.keyword);
-      this.addArticles(el.image, el.title, el.date, el.text, el.source, el.link, el.keyword, el._id);
-      if (this.keywords.find((word) => word !== el.keyword)) {
+      if (!this.keywords.includes(el.keyword)) {
         this.keywords.push(el.keyword);
       }
+      this.addArticles(el.image, el.title, el.date, el.text, el.source, el.link, el.keyword, el._id);
     }
-    console.log(this.keywords);
+  }
 
+  getKeywords() {
+    return this.keywords;
   }
 }

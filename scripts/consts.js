@@ -23,6 +23,9 @@ const MOBILE_AUTH = document.querySelector('.mobile__button');
 const MOBILE_EXIT = document.querySelector('.mobile__logout');
 const MOBILE_ARTICLES = document.querySelector('.mobile__articles');
 
+const ARTICLES_VALUE = document.querySelector('.saved__value');
+const ARTICLES_TEXT = document.querySelector('.saved__text');
+
 const AUTH_FORM = document.forms.enter;
 const REG_FORM = document.forms.reg;
 const SEARCH_FORM = document.forms.search;
@@ -71,4 +74,6 @@ export {
   SAVED_ARTICLES,
   MOBILE_EXIT,
   MOBILE_ARTICLES,
+  ARTICLES_VALUE,
+  ARTICLES_TEXT,
 };

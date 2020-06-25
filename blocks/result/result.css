@@ -16,7 +16,7 @@
   }
 }
 
-@media screen and (max-width: 448px) {
+@media screen and (max-width: 600px) {
   .result {
     padding: 0 16px;
   }

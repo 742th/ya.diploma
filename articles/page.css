@@ -1,8 +1,8 @@
 @import url('./header/header.css');
 @import url('./footer/footer.css');
-@import url('./popup/popup.css');
 @import url('./result/result.css');
 @import url('./saved/saved.css');
+@import url('./mobile/mobile.css');
 
 .page {
   max-width: 1440px;
@@ -16,7 +16,7 @@
   display: flex;
 }
 
-#overlay {
+.overlay {
   position: fixed;
   display: none;
   justify-content: center;
@@ -29,7 +29,7 @@
   z-index: 1;
 }
 
-#overlay-reg {
+.overlay-reg {
   position: fixed;
   display: none;
   justify-content: center;
@@ -40,4 +40,21 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+.overlay-mobile {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.active {
+  display: flex;
 }

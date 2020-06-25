@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/Favicon.png" type="image/x-icon">
   <title>News Explorer</title>
 </head>
 <body>
@@ -16,20 +17,34 @@
         <button class="header__logout"></button>
       </nav>
     </header>
+
     <section class="saved">
       <h2 class="saved__title">Сохранённые статьи</h2>
-      <p class="saved__value">Грета, у вас 5 сохранённых статей</p>
-      <span class="saved__text">
+      <p class="saved__value"></p>
+      <div class="saved__text">
         <p class="saved__p">По ключевым словам:</p>
-        <p class="saved__bold">Природа, Тайга</p>
+        <p class="saved__bold"></p>
         <p class="saved__p">и</p>
-        <p class="saved__bold">2 другим</p>
-      </span>
+        <p class="saved__bold"></p>
+      </div>
     </section>
     <section class="result">
       <div class="result__container">
       </div>
     </section>
+
+    <div class="overlay-mobile">
+      <div class="mobile">
+        <img class="mobile__close" src="./images/close.svg" alt="close_img">
+        <nav class="mobile__nav">
+          <a class="mobile__link" href="/">Главная</a>
+          <a class="mobile__articles" href="./articles.html">Сохранённые статьи</a>
+          <button class="mobile__button" hidden>Авторизоваться</button>
+          <button class="mobile__logout"></button>
+        </nav>
+      </div>
+    </div>
+
     <footer class="footer" >
       <h2 class="footer__title">&copy; 2020 Supersite, Powered by News API</h2>
       <div class="footer__container">
