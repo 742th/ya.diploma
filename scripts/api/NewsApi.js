@@ -15,9 +15,5 @@ export class NewsApi {
         }
         return res.json();
       })
-      .catch((err) => {
-        console.log(err);
-        throw new Error(`Ошибка: ${err.message}`);
-      });
   }
 }

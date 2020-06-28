@@ -85,7 +85,10 @@ SEARCH_FORM.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!e.target.elements.request.value) return;
   let date = new Date();
-  let parseDate = ('&from=' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() - 7) + '&to=' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
+  let beforeDate = new Date();
+  let weekBefore = beforeDate.setDate(beforeDate.getDate() - 7);
+  let parsedBefore = new Date(weekBefore);
+  let parseDate = ('&from=' + parsedBefore.getFullYear() + '-' + (parsedBefore.getMonth() + 1) + '-' + parsedBefore.getDate() + '&to=' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
   let value = e.target.elements.request.value;
   RESULT_BLOCK.classList.add('active');
   NOT_FOUND.classList.remove('active');
@@ -137,8 +140,10 @@ AUTH_FORM.addEventListener('submit', (e) => {
     .then((res) => {
       localStorage.setItem('token', res.token);
       mainApi.getUserData(res.token)
-        .then((el) => enterAll(el.name));
-    });
+        .then((el) => enterAll(el.name))
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
 });
 
 EXIT_BUTTON.addEventListener('click', (e) => exitAll());
@@ -147,7 +152,8 @@ MOBILE_EXIT.addEventListener('click', (e) => exitAll());
 
 REG_FORM.addEventListener('submit', (e) => {
   const data = regForm.getData();
-  mainApi.signup(data.email, data.password, data.name);
+  mainApi.signup(data.email, data.password, data.name)
+    .catch(e => console.log(e));
 });
 
 MOBILE_AUTH.addEventListener('click', (e) => {
@@ -155,22 +161,30 @@ MOBILE_AUTH.addEventListener('click', (e) => {
 });
 
 RESULT_BOX.addEventListener('click', (e) => {
-  if (e.target.classList.value === 'card__button-flag' && localStorage.getItem('token') && !e.target.getAttribute('id')) {
+  if ((e.target.classList.value === 'card__logged' || e.target.classList.value === 'card__button-flag') && localStorage.getItem('token') && !e.target.getAttribute('id')) {
     const url = e.target.nextElementSibling.getAttribute('href');
     const keyword = e.target.nextElementSibling.getAttribute('name');
     const card = cardList.getArr().find((el) => el.url === url);
     mainApi.createArticle(keyword, card.title, card.description, card.publishedAt, card.source.name, url, card.urlToImage)
       .then((el) => {
+        if(!el) {
+          throw new Error('error');
+        }
         e.target.classList.add('marked');
         e.target.setAttribute('id', el._id);
-      });
-  } else if (e.target.classList.value === 'card__button-flag marked' && localStorage.getItem('token')) {
+      })
+      .catch(err => console.log(err));
+  } else if ((e.target.classList.value === 'card__logged marked' || e.target.classList.value === 'card__button-flag marked') && localStorage.getItem('token')) {
     const id = e.target.getAttribute('id');
     mainApi.removeArticle(id)
       .then((el) => {
+        if(!el) {
+          throw new Error('error');
+        }
         e.target.classList.remove('marked');
         e.target.removeAttribute('id');
       })
+      .catch(err => console.log(err));
   }
 });
 
@@ -180,4 +194,5 @@ if (localStorage.getItem('token')) {
       if (!data) return;
       enterAll(data.name);
     })
+    .catch(err => console.log(err));
 }

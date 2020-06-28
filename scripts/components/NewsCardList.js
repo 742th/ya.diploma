@@ -28,6 +28,7 @@ export class NewsCardList {
     this.cardList = [];
     this.current = 3;
     this.overCurrent = 5;
+    this.button.removeAttribute('hidden');
     while (this.container.firstChild) {
       this.container.removeChild(this.container.firstChild);
     }
@@ -39,9 +40,10 @@ export class NewsCardList {
 
   showMore() {
     if (this.overCurrent >= this.cardList.length) {
-      this.button.getAttribute('disabled', true);
+      this.button.setAttribute('hidden', true);
       return;
     }
+
     for (this.current; this.current <= this.overCurrent; this.current++) {
       this.addCard( this.cardList[this.current].urlToImage,
         this.cardList[this.current].title,
@@ -68,7 +70,7 @@ export class NewsCardList {
     const card = document.createElement('div');
     this.container.appendChild(card);
     card.classList.add('card');
-    card.insertAdjacentHTML("afterbegin",'<button class="card__button-flag"></button>');
+    localStorage.getItem('token')? card.insertAdjacentHTML("afterbegin",'<button class="card__logged"></button>') : card.insertAdjacentHTML("afterbegin",'<button class="card__button-flag"></button>');
     const el = document.createElement('a');
     card.appendChild(el);
     el.classList.add('card');

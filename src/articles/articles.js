@@ -30,6 +30,7 @@ RESULT_BOX.addEventListener('click', (e) => {
       .then((res) => {
         RESULT_BOX.removeChild(e.target.offsetParent);
       })
+      .catch(e => console.log(e));
   }
 });
 
@@ -59,7 +60,8 @@ if (localStorage.getItem('token')) {
       EXIT_BUTTON.insertAdjacentHTML('beforeend', '<img class="header__img" src="./images/logout_black.png" alt="logout"></img>');
       MOBILE_EXIT.textContent = data.name;
       MOBILE_EXIT.insertAdjacentHTML('beforeend', '<img class="header__img" src="./images/logout_white.png" alt="logout"></img>');
-    });
+    })
+    .catch(e => console.log(e));
 
     articlesMainApi.getArticles()
       .then((arr) => {
@@ -87,4 +89,5 @@ if (localStorage.getItem('token')) {
 
         }
       })
+      .catch(e => console.log(e));
 }

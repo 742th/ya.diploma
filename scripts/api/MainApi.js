@@ -23,7 +23,6 @@ export class MainApi {
       }
       return res.json();
     })
-    .catch(err => console.log(err));
   }
 
   signin(email, password) {
@@ -42,7 +41,6 @@ export class MainApi {
       }
       return res.json();
     })
-    .catch(err => console.log({err}));
   }
 
   getUserData(token) {
@@ -58,7 +56,6 @@ export class MainApi {
       }
       return res.json();
     })
-    .catch(err => console.log(err));
   }
 
   getArticles() {
@@ -100,7 +97,6 @@ export class MainApi {
       }
       return res.json();
     })
-    .catch(err => console.log(err));
   }
 
   removeArticle(id) {
