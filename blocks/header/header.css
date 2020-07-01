@@ -1,0 +1,27 @@
+@import url('./__title/header__title.css');
+@import url('./__nav/header__nav.css');
+@import url('./__mobile/header__mobile.css');
+@import url('./__menu/header__menu.css');
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFFFFF;
+  padding: 0 104px;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 0 16px;
+    min-height: 56px;
+  }
+}

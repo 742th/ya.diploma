@@ -1,0 +1,26 @@
+@import url('./__title/footer__title.css');
+@import url('./__container/footer__container.css');
+
+.footer {
+  background-color: #FFFFFF;
+  display: flex;
+  padding: 0 104px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .footer {
+    align-items: baseline;
+    padding: 20px 16px 0;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+}

@@ -1,0 +1,20 @@
+@import url('./__value/saved__value.css');
+@import url('./__title/saved__title.css');
+@import url('./__text/saved__text.css');
+
+.saved {
+  background-color: #FFFFFF;
+  padding-left: 104px;
+}
+
+@media screen and (max-width: 768px) {
+  .saved {
+    padding-left: 40px;
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .saved {
+    padding-left: 16px;
+  }
+}

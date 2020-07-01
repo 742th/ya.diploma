@@ -1,0 +1,24 @@
+@import url('./card/card.css');
+
+.result__container {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin: 64px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .result__container {
+    margin: 32px 0;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .result__container {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+}

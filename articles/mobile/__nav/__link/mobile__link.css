@@ -1,0 +1,23 @@
+.mobile__link,
+.mobile__articles {
+  font-family: Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+  margin-right: 32px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .mobile__link,
+  .mobile__articles {
+    font-size: 16px;
+    margin: 20px 0 0;
+  }
+
+  .mobile__articles {
+    margin: 0 0 30px;
+  }
+}

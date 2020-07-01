@@ -1,0 +1,19 @@
+.card__img {
+  max-width: 400px;
+  height: 272px;
+}
+
+@media screen and (max-width: 768px) {
+  .card__img {
+    max-width: 224px;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card__img {
+    width: 100%;
+    max-width: 288px;
+
+  }
+}

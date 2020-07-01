@@ -1,0 +1,14 @@
+@import url('./__link/footer__link.css');
+
+.footer__links {
+  margin-right: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    margin-right: 18px;
+    width: 200px;
+  }
+}

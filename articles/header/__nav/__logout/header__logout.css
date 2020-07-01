@@ -1,0 +1,19 @@
+.header__logout {
+  display: flex;
+  align-items: center;
+  font-family: Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  border: 1px solid #1A1B22;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background-color: transparent;
+  color: #1A1B22;
+  padding: 12px 11px;
+}
+
+.header__logout:hover {
+  cursor: pointer;
+}

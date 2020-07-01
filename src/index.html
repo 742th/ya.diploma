@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/Favicon.png" type="image/x-icon">
+  <title>News Explorer</title>
+</head>
+<body>
+  <section class="page">
+    <div class="banner"></div>
+
+    <header class="header">
+      <h2 class="header__title">NewsExplorer</h2>
+      <button class="header__mobile"></button>
+      <nav class="header__nav">
+        <a class="header__link linked" href="./index.html">Главная</a>
+        <a class="header__articles" href="articles.html" hidden>Сохранённые статьи</a>
+        <button class="header__button">Авторизоваться</button>
+        <button class="header__logout" hidden></button>
+      </nav>
+    </header>
+
+    <section class="search">
+      <div class="search__container">
+        <h2 class="search__title">Что в мире творится?</h2>
+        <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+      </div>
+      <form class="search__form" name="search">
+        <input name="request" class="search__input" type="text" placeholder="Введите тему новости">
+        <button class="search__button">Искать</button>
+      </form>
+    </section>
+
+    <section class="result">
+      <div class="result__load">
+        <i class="result__preloader"></i>
+        <h3 class="result__search">Идет поиск новостей...</h3>
+      </div>
+      <div class="result__notfound">
+        <img class="result__image" src="./images/not-found_v1.png" alt="not-found-img">
+        <h3 class="result__subtitle">Ничего не найдено</h3>
+        <p class="result__text">К сожалению по вашему запросу ничего не найдено.</p>
+      </div>
+      <div class="result__box">
+        <h2 class="result__title">Результаты поиска</h2>
+        <div class="result__container">
+        </div>
+        <button class="result__button">Показать еще</button>
+      </div>
+    </section>
+
+    <section class="about">
+      <img class="about__img" alt="author_photo" src="./images/author.jpg">
+      <div class="about__container">
+        <h2 class="about__title">Об авторе</h2>
+        <div class="about__text">
+          <p class="about__quote">Это блок с описанием автора проекта.
+             Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+          <p class="about__quote">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились,
+             и чем можете помочь потенциальным заказчикам.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="overlay">
+      <div class="popup">
+        <h2 class="popup__title">Вход</h2>
+        <img class="popup__close" src="./images/close.svg" alt="close_img">
+        <form name="enter" class="popup__form" novalidate>
+          <label class="popup__label">Email</label>
+          <input name="email" class="popup__input" type="email" pattern="^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-z0-9_-]+(\.[\w_-]+)*\.[a-z]+$" required placeholder="Введите почту">
+          <span class="popup__error"></span>
+          <label class="popup__label">Пароль</label>
+          <input name="password" class="popup__input" minlength="8" maxlength="20" type="password" required placeholder="Введите пароль">
+          <span class="popup__error"></span>
+          <button class="popup__button" disabled>Войти</button>
+        </form>
+        <div class="popup__text">
+          <p class="popup__or">или</p>
+          <a class="popup__url">Зарегистрироваться</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-reg">
+      <div class="popup">
+        <h2 class="popup__title">Регистрация</h2>
+        <img class="popup__close close-reg" src="./images/close.svg" alt="close_img">
+        <form name="reg" class="popup__form" novalidate>
+          <label class="popup__label">Email</label>
+          <input name="email" class="popup__input" type="email" pattern="^([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+@[a-z0-9_-]+(\.[\w_-]+)*\.[a-z]+$" required placeholder="Введите почту">
+          <span class="popup__error"></span>
+          <label class="popup__label">Пароль</label>
+          <input name="password" class="popup__input" minlength="8" maxlength="20" type="password" required placeholder="Введите пароль">
+          <span class="popup__error"></span>
+          <label class="popup__label">Имя</label>
+          <input name="myName" class="popup__input" minlength="2" maxlength="30" type="text" required placeholder="Введите своё имя">
+          <span class="popup__error"></span>
+          <button class="popup__button" disabled>Зарегистрироваться</button>
+        </form>
+        <div class="popup__text">
+          <p class="popup__or">или</p>
+          <a class="popup__url enter">Войти</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-mobile">
+      <div class="mobile">
+        <img class="mobile__close" src="./images/close.svg" alt="close_img">
+        <nav class="mobile__nav">
+          <a class="mobile__link" href="./index.html">Главная</a>
+          <a class="mobile__articles" href="./articles.html" hidden>Сохранённые статьи</a>
+          <button class="mobile__button">Авторизоваться</button>
+          <button class="mobile__logout" hidden></button>
+        </nav>
+      </div>
+    </div>
+
+    <footer class="footer" >
+      <h2 class="footer__title">&copy; 2020 Supersite, Powered by News API</h2>
+      <div class="footer__container">
+        <div class="footer__links">
+          <a class="footer__link" href="./index.html">Главная</a>
+          <a class="footer__link" href="https://praktikum.yandex.ru/" target="_blank">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__socials">
+          <a class="footer__logo" href="https://github.com/742th/" target="_blank"></a>
+          <a class="footer__logo" href="./articles.html" target="_blank"></a>
+        </div>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>

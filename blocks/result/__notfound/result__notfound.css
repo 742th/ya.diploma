@@ -1,0 +1,10 @@
+@import url('./__subtitle/result__subtitle.css');
+@import url('./__text/result__text.css');
+
+.result__notfound {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}

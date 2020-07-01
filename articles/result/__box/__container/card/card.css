@@ -1,0 +1,30 @@
+@import url('./__button-flag/card__button-flag.css');
+@import url('./__button-login/card__button-login.css');
+@import url('./__img/card__img.css');
+@import url('./__container/card__container.css');
+@import url('./__keyword/card__keyword.css');
+
+.card {
+  background-color: #FFFFFF;
+  max-width: 400px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    max-width: 224px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .card {
+    width: 100%;
+    max-width: 288px;
+  }
+}

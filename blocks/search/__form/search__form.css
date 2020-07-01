@@ -1,0 +1,8 @@
+@import url('./__button/search__button.css');
+@import url('./__input/search__input.css');
+
+.search__form {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+}

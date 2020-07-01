@@ -1,0 +1,21 @@
+.footer__logo {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-position: center;
+}
+
+.footer__logo:first-child {
+  background-image: url(../../../../../src/images/gitlogo.png);
+  margin-right: 28px;
+}
+
+.footer__logo:last-child {
+  background-image: url(../../../../../src/images/facebooklogo.png);
+}
+
+@media screen and (max-width: 768px) {
+  .footer__logo:first-child {
+    margin-right: 20px;
+  }
+}
